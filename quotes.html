@@ -7,45 +7,39 @@
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=DM+Mono:wght@300&display=swap" rel="stylesheet">
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  html, body { height: 100%; overflow: hidden; }
-  body {
+  html, body { 
+    height: 100%; 
     background: transparent;
+  }
+  body {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
+    align-items: center; /* Centers vertically in the Notion block */
+    justify-content: flex-start; /* Aligns to the left edge */
+    padding: 1rem 2rem;
     font-family: 'Lora', serif;
   }
   .quote-wrap {
-    max-width: 900px; /* Wider for that 'main feature' look */
-    width: 100%;
-    border-left: 4px solid #c8b89a; /* Thicker border */
+    width: 100%; /* Allows it to use the full width of your Notion page */
+    max-width: none; /* Removes the previous 900px limit */
+    border-left: 4px solid #c8b89a;
     padding: 0.5rem 0 0.5rem 2.5rem;
-    transition: transform 0.3s ease;
-  }
-  .quote-wrap:hover {
-    transform: translateX(5px); /* Subtle interaction */
   }
   .quote-text {
-    font-size: 28px; /* Significantly larger */
+    font-size: 28px;
     font-style: italic;
     color: #3d3530;
-    line-height: 1.4;
+    line-height: 1.3;
     font-weight: 400;
-    margin-bottom: 1.2rem;
+    margin-bottom: 0.8rem;
+    white-space: normal; /* Ensures it wraps only when it hits the page edge */
+    word-wrap: break-word;
   }
   .quote-author {
     font-family: 'DM Mono', monospace;
-    font-size: 13px; /* Scaled up slightly */
+    font-size: 13px;
     letter-spacing: 0.2em;
     color: #a09080;
     text-transform: uppercase;
-  }
-  
-  /* Mobile/Small Embed Optimization */
-  @media (max-width: 600px) {
-    .quote-text { font-size: 20px; }
-    .quote-wrap { padding-left: 1.5rem; }
   }
 </style>
 </head>
@@ -55,6 +49,7 @@
   <p class="quote-author" id="au"></p>
 </div>
 <script>
+// Quotes list from daily_quote.html[cite: 1]
 const quotes = [
   { text: "The secret of getting ahead is getting started.", author: "Mark Twain" },
   { text: "It always seems impossible until it's done.", author: "Nelson Mandela" },
